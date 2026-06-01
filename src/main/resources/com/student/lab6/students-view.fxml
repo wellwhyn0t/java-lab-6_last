@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.student.lab6.StudentsController"
+            style="-fx-background-color: #ecf0f1;">
+    
+    <top>
+        <VBox spacing="10.0" style="-fx-background-color: #34495e; -fx-padding: 15;">
+            <Label text="Student Management System" 
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Variant 18 | ID, Name, Group, Rating, Birth Date"
+                   style="-fx-font-size: 12px; -fx-text-fill: #bdc3c7;"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="studentsTable" style="-fx-background-color: white;">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="nameColumn" text="Full Name" prefWidth="200"/>
+                <TableColumn fx:id="groupColumn" text="Group" prefWidth="100"/>
+                <TableColumn fx:id="ratingColumn" text="Rating" prefWidth="80"/>
+                <TableColumn fx:id="birthDateColumn" text="Birth Date" prefWidth="120"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </center>
+    
+    <bottom>
+        <VBox spacing="10.0" style="-fx-background-color: #bdc3c7; -fx-padding: 10;">
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <Button text="+ Add" onAction="#onAddButton"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 6 15;"/>
+                <Button text="✏ Edit" onAction="#onEditButton"
+                        style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 6 15;"/>
+                <Button text="🗑 Delete" onAction="#onDeleteButton"
+                        style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 6 15;"/>
+                <Button text="⟳ Refresh" onAction="#onRefreshButton"
+                        style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 6 15;"/>
+                <Button text="← Back" onAction="#onBackButton"
+                        style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 6 15;"/>
+            </HBox>
+            <Label fx:id="statusLabel" 
+                   style="-fx-font-size: 12px; -fx-text-fill: #2c3e50;"/>
+        </VBox>
+    </bottom>
+    
+    <padding>
+        <Insets value="10"/>
+    </padding>
+</BorderPane>
