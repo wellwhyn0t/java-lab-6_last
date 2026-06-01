@@ -67,7 +67,7 @@ public class StudentsController implements Initializable {
             new Student(5, "Новиков Сергей", "ПИ-202", 4.6, LocalDate.of(2002, 7, 28))
         );
         studentsTable.setItems(studentData);
-        updateStatus("Loaded " + studentData.size() + " students");
+        updateStatus("Загружено студентов: " + studentData.size());
     }
     
     @FXML
@@ -82,12 +82,12 @@ public class StudentsController implements Initializable {
             controller.setEditMode(false);
             
             Stage stage = new Stage();
-            stage.setTitle("Add New Student");
+            stage.setTitle("Добавить студента");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.showAndWait();
         } catch (IOException e) {
-            updateStatus("Error opening add form: " + e.getMessage());
+            updateStatus("Ошибка открытия формы добавления: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -96,7 +96,7 @@ public class StudentsController implements Initializable {
     public void onEditButton() {
         Student selected = studentsTable.getSelectionModel().getSelectedItem();
         if (selected == null) {
-            updateStatus("Please select a student to edit");
+            updateStatus("Выберите студента для редактирования");
             return;
         }
         
@@ -110,12 +110,12 @@ public class StudentsController implements Initializable {
             controller.fillFormData(selected);
             
             Stage stage = new Stage();
-            stage.setTitle("Edit Student");
+            stage.setTitle("Редактировать студента");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.showAndWait();
         } catch (IOException e) {
-            updateStatus("Error opening edit form: " + e.getMessage());
+            updateStatus("Ошибка открытия формы редактирования: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -124,18 +124,18 @@ public class StudentsController implements Initializable {
     public void onDeleteButton() {
         Student selected = studentsTable.getSelectionModel().getSelectedItem();
         if (selected == null) {
-            updateStatus("Please select a student to delete");
+            updateStatus("Выберите студента для удаления");
             return;
         }
         
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirm Delete");
-        alert.setHeaderText("Delete Student");
-        alert.setContentText("Are you sure you want to delete " + selected.getName() + "?");
+        alert.setTitle("Подтверждение удаления");
+        alert.setHeaderText("Удаление студента");
+        alert.setContentText("Вы уверены, что хотите удалить " + selected.getName() + "?");
         
         if (alert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
             studentData.remove(selected);
-            updateStatus("Deleted: " + selected.getName());
+            updateStatus("Удален: " + selected.getName());
         }
     }
     
@@ -145,11 +145,11 @@ public class StudentsController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("main-view.fxml"));
             Scene scene = new Scene(loader.load(), 450, 350);
             Stage stage = (Stage) statusLabel.getScene().getWindow();
-            stage.setTitle("Lab 6 - Variant 18: Student Navigator");
+            stage.setTitle("Лабораторная работа 6 - Вариант 18: Навигатор студентов");
             stage.setScene(scene);
             stage.setResizable(false);
         } catch (IOException e) {
-            updateStatus("Error navigating back: " + e.getMessage());
+            updateStatus("Ошибка возврата назад: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -161,14 +161,14 @@ public class StudentsController implements Initializable {
     
     public void addStudent(Student student) {
         studentData.add(student);
-        updateStatus("Added: " + student.getName());
+        updateStatus("Добавлен: " + student.getName());
     }
     
     public void updateStudent(Student updatedStudent) {
         int index = studentData.indexOf(studentsTable.getSelectionModel().getSelectedItem());
         if (index >= 0) {
             studentData.set(index, updatedStudent);
-            updateStatus("Updated: " + updatedStudent.getName());
+            updateStatus("Обновлен: " + updatedStudent.getName());
         }
     }
     

@@ -73,18 +73,18 @@ public class StudentFormController {
             if (isEditMode && currentStudent != null) {
                 Student updated = new Student(id, name, group, rating, birthDate);
                 studentsController.updateStudent(updated);
-                showMessage("Student updated successfully", false);
+                showMessage("Студент успешно обновлен", false);
             } else {
                 Student newStudent = new Student(id, name, group, rating, birthDate);
                 studentsController.addStudent(newStudent);
-                showMessage("Student added successfully", false);
+                showMessage("Студент успешно добавлен", false);
             }
             
             closeWindow();
         } catch (NumberFormatException e) {
-            showMessage("Invalid number format", true);
+            showMessage("Неверный формат числа", true);
         } catch (Exception e) {
-            showMessage("Error: " + e.getMessage(), true);
+            showMessage("Ошибка: " + e.getMessage(), true);
         }
     }
     
@@ -95,38 +95,38 @@ public class StudentFormController {
     
     private boolean validateInput() {
         if (nameField.getText().trim().isEmpty()) {
-            showMessage("Name is required", true);
+            showMessage("ФИО обязательно для заполнения", true);
             return false;
         }
         
         if (groupField.getText().trim().isEmpty()) {
-            showMessage("Group is required", true);
+            showMessage("Группа обязательна для заполнения", true);
             return false;
         }
         
         if (ratingField.getText().trim().isEmpty()) {
-            showMessage("Rating is required", true);
+            showMessage("Рейтинг обязателен для заполнения", true);
             return false;
         }
         
         try {
             double rating = Double.parseDouble(ratingField.getText().trim());
             if (rating < 0 || rating > 5) {
-                showMessage("Rating must be between 0 and 5", true);
+                showMessage("Рейтинг должен быть от 0 до 5", true);
                 return false;
             }
         } catch (NumberFormatException e) {
-            showMessage("Invalid rating value", true);
+            showMessage("Неверное значение рейтинга", true);
             return false;
         }
         
         if (birthDatePicker.getValue() == null) {
-            showMessage("Birth date is required", true);
+            showMessage("Дата рождения обязательна", true);
             return false;
         }
         
         if (!isEditMode && idField.getText().trim().isEmpty()) {
-            showMessage("ID is required", true);
+            showMessage("ID обязателен для заполнения", true);
             return false;
         }
         

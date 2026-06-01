@@ -34,14 +34,14 @@ public class MainController {
         String password = passwordField.getText();
         
         if (username.isEmpty() || password.isEmpty()) {
-            showMessage("Please enter both username and password", true);
+            showMessage("Введите логин и пароль", true);
             return;
         }
         
         if (username.equals(VALID_USERNAME) && password.equals(VALID_PASSWORD)) {
             navigateToStudentList();
         } else {
-            showMessage("Invalid credentials! Try: admin / 12345", true);
+            showMessage("Неверные данные! Попробуйте: admin / 12345", true);
         }
     }
     
@@ -69,11 +69,11 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("students-view.fxml"));
             Scene scene = new Scene(loader.load(), 700, 500);
             Stage stage = (Stage) messageLabel.getScene().getWindow();
-            stage.setTitle("Student List - Variant 18");
+            stage.setTitle("Список студентов - Вариант 18");
             stage.setScene(scene);
             stage.setResizable(true);
         } catch (IOException e) {
-            showMessage("Error loading student list: " + e.getMessage(), true);
+            showMessage("Ошибка загрузки списка: " + e.getMessage(), true);
             e.printStackTrace();
         }
     }
