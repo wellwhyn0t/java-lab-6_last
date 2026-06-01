@@ -1,9 +1,6 @@
 package ru.university.sortbot.model;
 
-/**
- * Класс для хранения сессии пользователя.
- * Содержит состояние игры, статистику и историю вопросов.
- */
+
 public class UserSession {
     private int correctAnswers;      // Количество правильных ответов
     private int totalQuestions;      // Общее количество вопросов
@@ -49,9 +46,7 @@ public class UserSession {
         this.currentTask = task;
     }
 
-    /**
-     * Сброс статистики пользователя
-     */
+
     public void resetStats() {
         this.correctAnswers = 0;
         this.totalQuestions = 0;
@@ -59,9 +54,7 @@ public class UserSession {
         this.currentTask = null;
     }
 
-    /**
-     * Получить процент правильных ответов
-     */
+
     public double getAccuracy() {
         if (totalQuestions == 0) {
             return 0.0;

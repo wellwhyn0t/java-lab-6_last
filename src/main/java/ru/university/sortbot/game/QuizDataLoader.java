@@ -5,10 +5,7 @@ import ru.university.sortbot.model.SortTask;
 
 import java.util.*;
 
-/**
- * Класс для загрузки данных викторины.
- * Загружает вопросы из встроенных данных (можно расширить загрузкой из файла).
- */
+
 public class QuizDataLoader {
     
     // Все доступные категории вопросов
@@ -92,16 +89,12 @@ public class QuizDataLoader {
             "Расположите ноты музыкальной гаммы по порядку (До, Ре, Ми...)"));
     }
 
-    /**
-     * Перемешивание списка элементов
-     */
+
     private static void shuffleItems(List<SortItem> items) {
         Collections.shuffle(items);
     }
 
-    /**
-     * Получить случайное задание
-     */
+
     public static SortTask getRandomTask() {
         if (ALL_TASKS.isEmpty()) {
             return null;
@@ -110,16 +103,12 @@ public class QuizDataLoader {
         return ALL_TASKS.get(random.nextInt(ALL_TASKS.size()));
     }
 
-    /**
-     * Получить все доступные задания
-     */
+
     public static List<SortTask> getAllTasks() {
         return new ArrayList<>(ALL_TASKS);
     }
 
-    /**
-     * Получить количество доступных заданий
-     */
+
     public static int getTaskCount() {
         return ALL_TASKS.size();
     }

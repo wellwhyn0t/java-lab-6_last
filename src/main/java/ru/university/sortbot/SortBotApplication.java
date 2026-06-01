@@ -4,16 +4,6 @@ import org.telegram.telegrambots.longpolling.TelegramBotsLongPollingApplication;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.university.sortbot.config.BotConfig;
 
-/**
- * Главный класс приложения для запуска Telegram-бота.
- * Вариант 18: Сортировщик по порядку
- * 
- * Для запуска бота необходимо:
- * 1. Создать бота через @BotFather в Telegram
- * 2. Получить токен и имя бота
- * 3. Вставить их в класс BotConfig
- * 4. Запустить этот класс
- */
 public class SortBotApplication {
 
     public static void main(String[] args) {

@@ -2,14 +2,11 @@ package ru.university.sortbot.model;
 
 import java.util.List;
 
-/**
- * Класс задания на сортировку.
- * Содержит список элементов для упорядочивания и правильный порядок.
- */
+
 public class SortTask {
-    private String category;           // Категория (например, "Планеты")
-    private List<SortItem> items;      // Элементы для сортировки (перемешанные)
-    private String description;        // Описание задания
+    private String category;
+    private List<SortItem> items;
+    private String description;
 
     public SortTask(String category, List<SortItem> items, String description) {
         this.category = category;
@@ -29,11 +26,7 @@ public class SortTask {
         return description;
     }
 
-    /**
-     * Проверка правильности порядка элементов.
-     * @param userOrder порядок, предложенный пользователем (названия через запятую)
-     * @return true если порядок верный
-     */
+
     public boolean checkAnswer(String userOrder) {
         String[] userNames = userOrder.split(",");
         
@@ -71,9 +64,7 @@ public class SortTask {
         return true;
     }
 
-    /**
-     * Получить правильный порядок элементов
-     */
+
     public String getCorrectOrderAsString() {
         java.util.List<SortItem> sortedItems = new java.util.ArrayList<>(items);
         sortedItems.sort((a, b) -> Integer.compare(a.getCorrectOrder(), b.getCorrectOrder()));
@@ -88,9 +79,7 @@ public class SortTask {
         return result.toString();
     }
 
-    /**
-     * Получить строковое представление элементов для вопроса
-     */
+
     public String getItemsAsString() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < items.size(); i++) {
