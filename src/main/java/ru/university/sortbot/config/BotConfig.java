@@ -8,7 +8,7 @@ public class BotConfig {
 
     // Токен бота - ПОЛУЧИТЕ У @BotFather и вставьте вместо пустой строки
     // Пример формата: 1234567890:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw
-    public static final String BOT_TOKEN = "8928042131:AAHD3t7Q2mJF4YoQGOATMXLVGWyRbBA7NqA";
+    public static final String BOT_TOKEN = "";
 
     // Путь к ресурсам (для загрузки данных из файлов)
     public static final String RESOURCES_PATH = "src/main/resources/";
